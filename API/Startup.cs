@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Application.PGN;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -19,6 +20,10 @@ namespace API
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            PGN pgn = new PGN();
+            pgn.setupPgn();
+            pgn.createPgnFile();
+            
         }
 
         public IConfiguration Configuration { get; }
