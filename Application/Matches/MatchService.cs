@@ -4,7 +4,7 @@ using System.IO;
 
 namespace Application.PGN
 {
-    public class PGN
+    public class MatchService
     {
         private string White = "Tim";
         private string Black = "Jeroen";
@@ -29,7 +29,7 @@ namespace Application.PGN
 
         public void createPgnFile()
         {
-            string fileName = @"/home/tim/projects/Chess/Application/PGN/test.pgn";
+            string fileName = @"/home/tim/projects/Chess/Application/Matches/test.pgn";
 
             try
             {
@@ -40,26 +40,26 @@ namespace Application.PGN
 
                 using (StreamWriter sw = File.CreateText(fileName))
                 {
-                    sw.WriteLine("[Event \""+ Event + "\"]");
-                    sw.WriteLine("[Site \""+ Site + "\"]");
-                    sw.WriteLine("[Date \""+ Date + "\"]");
-                    sw.WriteLine("[Round \""+ Round + "\"]");
-                    sw.WriteLine("[White \""+ White + "\"]");
-                    sw.WriteLine("[Black \""+ Black + "\"]");
-                    sw.WriteLine("[Result \""+ Result + "\"]");
+                    sw.WriteLine("[Event \"" + Event + "\"]");
+                    sw.WriteLine("[Site \"" + Site + "\"]");
+                    sw.WriteLine("[Date \"" + Date + "\"]");
+                    sw.WriteLine("[Round \"" + Round + "\"]");
+                    sw.WriteLine("[White \"" + White + "\"]");
+                    sw.WriteLine("[Black \"" + Black + "\"]");
+                    sw.WriteLine("[Result \"" + Result + "\"]");
                     sw.WriteLine("");
-                    
+
                     foreach (var item in pgn)
                     {
                         sw.Write(item + " ");
                     }
                 }
-            
+
 
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.ToString());    
+                Console.WriteLine(e.ToString());
             }
 
 
